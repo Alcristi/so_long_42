@@ -6,7 +6,7 @@
 /*   By: alcristi <alcristi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 19:16:02 by alcristi          #+#    #+#             */
-/*   Updated: 2021/12/13 17:56:31 by alcristi         ###   ########.fr       */
+/*   Updated: 2021/12/13 22:56:46 by alcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	ft_abs(int p1, int p2)
 	return (p1 - p2);
 }
 
-char	*ft_substrsplit(char const *s, unsigned int start, size_t len)
+static char	*ft_substrsplit(char const *s, unsigned int start, size_t len)
 {
 	size_t	size;
 	size_t	i;
@@ -76,7 +76,7 @@ char	*ft_substrsplit(char const *s, unsigned int start, size_t len)
 	return (sub);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split_long(char const *s, char c)
 {
 	char	**list;
 	size_t	c_words;
@@ -103,26 +103,4 @@ char	**ft_split(char const *s, char c)
 	}
 	list[c_words] = NULL;
 	return (list);
-}
-
-char	*ft_strnstr(const char *str, const char *to_find, size_t n)
-{
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = 0;
-	if (*to_find == '\0')
-		return ((char *)str);
-	while (str[i] && i < n)
-	{
-		j = 0;
-		while (to_find[j] && str[j + i] && (to_find[j] == str[j + i])
-			&& (j + i) < n)
-			j++;
-		if (to_find[j] == '\0')
-			return ((char *)&str[i]);
-		i++;
-	}
-	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: alcristi <alcristi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 00:34:53 by alcristi          #+#    #+#             */
-/*   Updated: 2021/12/13 20:25:59 by alcristi         ###   ########.fr       */
+/*   Updated: 2021/12/13 23:13:42 by alcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,12 @@ void	init_var(t_map *map, t_mlx *mlx, t_game *game)
 	game->step = 0;
 }
 
-void expose(t_var *var)
+int	expose(t_var *var)
 {
-	printmap(var->map,var->mlx);
+	printmap(var->map, var->mlx);
+	return (0);
 }
+
 int	main(int argc, char **argv)
 {
 	t_map	map;
@@ -56,6 +58,6 @@ int	main(int argc, char **argv)
 	var.game = &game;
 	mlx_key_hook(mlx.win, key_hook, &var);
 	mlx_hook(var.mlx->win, 17, 1L << 0, exit_game, &var);
-	mlx_expose_hook(mlx.win,expose,&var);
+	mlx_expose_hook(mlx.win, expose, &var);
 	mlx_loop(mlx.mlx);
 }

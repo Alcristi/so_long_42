@@ -6,7 +6,7 @@
 /*   By: alcristi <alcristi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 19:15:05 by alcristi          #+#    #+#             */
-/*   Updated: 2021/12/13 19:25:41 by alcristi         ###   ########.fr       */
+/*   Updated: 2021/12/13 22:49:53 by alcristi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	read_map(t_map *map, char *path_map, t_game *game)
 	map->line_map = ft_strdup("");
 	while (temp_line)
 	{
-		map->line_map = ft_strjoin(map->line_map, temp_line);
+		map->line_map = ft_strjoin_gnl(map->line_map, temp_line);
 		free (temp_line);
 		map->height_map++;
 		temp_line = get_next_line(map->fd_map);
